@@ -98,12 +98,10 @@ data "template_cloudinit_config" "container_instance_cloud_config" {
   base64_encode = false
 
   part {
-    content_type = "text/cloud-config"
     content      = "${data.template_file.container_instance_base_cloud_config.rendered}"
   }
 
   part {
-    content_type = "${var.cloud_config_content_type}"
     content      = "${var.cloud_config_content}"
   }
 }
